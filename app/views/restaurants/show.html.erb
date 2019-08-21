@@ -8,4 +8,15 @@
   <li><%= @restaurant.phone_number %></li>
 </ul>
 
+<h2>Reviews:</h2>
+<% if @restaurant.reviews.empty? %>
+    <p>No reviews</p>
+  <% else %>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %> - <%= review.rating %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= link_to 'Home', restaurants_path %>
